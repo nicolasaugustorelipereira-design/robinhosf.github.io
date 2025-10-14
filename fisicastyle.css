@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://miro.medium.com/1%2A_f86zzyXeICG0SFe1RMbPQ.jpeg');
+    background-size: 1600px 1600px;
+    background-position: center;
+    background-repeat: repeat;
+    font-family: sans-serif;
+  }
+  /* https://miro.medium.com/1%2A_f86zzyXeICG0SFe1RMbPQ.jpeg
+https://4kwallpapers.com/images/wallpapers/geometric-pattern-spiral-neon-gradient-black-background-5k-3840x2160-1202.png
+
+
+
+  */
+  .container {
+  background-color: rgba(64, 16, 240, 0.959);
+  width: 75%;
+  max-width: 100%;
+  padding: 1%;
+  display: block; 
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.332);
+  margin: 40px auto;
+  text-align: center;
+}
+
+
+  
+  
+  
+  
+  
+  
+  img {
+    display: block;
+    margin: 20px auto;
+    max-width: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+     margin: 20px auto;
+  }
+  
+  p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+  p:hover {
+    background-color: #00000010;
+  }
+  .destaque {
+    color: #153a00;
+    font-weight: bold;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  .fixedbuttonesquerda {
+      position: fixed;
+      top: 50%; 
+      transform: translateY(-50%); 
+      width: 60px;
+      height: 60px;
+      background-color: #3039b8;
+      color: white;
+      font-size: 24px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000; 
+  }
+  .fixedbuttondireita {
+    position: fixed;
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 60px;
+    height: 60px;
+    background-color:#3039b8;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+    right: 10px; 
+  }
+  
+  
+  
+  
+  
+  
+  
+  .round-button:hover {
+    background-color: #45a049;
+  }
+  
+  .inner-box {
+    margin: 40px auto;
+    background-color: #cfc4fff3;
+    border-radius: 10px;
+    max-width: 80%;
+    text-align: justify;
+    padding: 20px;
+    margin-top: 0;
+    overflow: visible;
+    height: auto;
+    flex-grow: 1;
+  }
+  

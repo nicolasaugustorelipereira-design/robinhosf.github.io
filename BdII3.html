@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout com Divs e Botões</title>
+    <link rel="stylesheet" href="BdIIStyle.css"> 
+</head>
+<body>
+    <button a href= BdII2.html  class="fixedbuttonesquerda">←</button>
+   <a href="BdII2.html" class="fixedbuttonesquerda">←</a>
+
+    <div class="container">
+        <section>
+        <div class="inner-box">
+            <section>
+                <h2>3º Bimestre</h2>
+
+<h3>Exclusão de Dados (<code>DELETE</code>)</h3>
+
+<p>
+	O comando <b>DELETE</b> é utilizado para <b>remover registros</b> específicos de uma tabela.
+	Essa remoção é <b>permanente</b> e, por isso, deve ser utilizada com cuidado.
+</p>
+
+<p>
+	A estrutura básica do comando é:
+</p>
+
+<pre>
+	DELETE FROM NomeDaTabela WHERE condição;
+</pre>
+
+<p>
+	Exemplo prático: excluindo um aluno com matrícula 1001.
+</p>
+
+<pre>
+	DELETE FROM Aluno WHERE matricula = 1001;
+</pre>
+
+<p>
+	Nesse exemplo, o aluno com matrícula <b>1001</b> será permanentemente removido da tabela <b>Aluno</b>, caso exista.
+</p>
+
+<p>
+	<b>Atenção:</b> omitir a cláusula <code>WHERE</code> resultará na exclusão de <b>todos os dados</b> da tabela!
+</p>
+
+<hr/>
+
+<h3>Exclusão de Tabelas (<code>DROP TABLE</code>)</h3>
+
+<p>
+	O comando <b>DROP TABLE</b> é utilizado para <b>excluir completamente uma tabela</b> do banco de dados,
+	incluindo todos os seus dados e estrutura.
+</p>
+
+<p>
+	Estrutura do comando:
+</p>
+
+<pre>
+	DROP TABLE NomeDaTabela;
+</pre>
+
+<p>
+	Exemplo prático: excluindo a tabela <b>Aluno</b>.
+</p>
+
+<pre>
+	DROP TABLE Aluno;
+</pre>
+
+<p>
+	Após a execução, a tabela <b>Aluno</b> deixará de existir no banco de dados, juntamente com todos os dados que ela continha.
+</p>
+
+<hr/>
+
+<h3>Chaves Estrangeiras (<code>FOREIGN KEY</code>)</h3>
+
+<p>
+	As <b>chaves estrangeiras</b> são usadas para criar <b>relacionamentos entre tabelas</b>.
+	Elas garantem que os dados relacionados estejam consistentes entre si.
+</p>
+
+<p>
+	Uma <b>chave estrangeira</b> é uma coluna (ou conjunto de colunas) que aponta para a chave primária de outra tabela.
+</p>
+
+<p>
+	Exemplo de criação de uma tabela com chave estrangeira:
+</p>
+
+<pre>
+	CREATE TABLE Matricula (
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		aluno_id INT,
+		curso_id INT,
+		FOREIGN KEY (aluno_id) REFERENCES Aluno(matricula),
+		FOREIGN KEY (curso_id) REFERENCES Curso(id)
+	);
+</pre>
+
+<p>
+	Neste exemplo, os campos <b>aluno_id</b> e <b>curso_id</b> são chaves estrangeiras que estabelecem
+	relacionamentos com as tabelas <b>Aluno</b> e <b>Curso</b>, respectivamente.
+</p>
+
+<ul>
+	<li>A ordem das colunas deve corresponder à ordem dos valores informados.</li>
+	<li>Os valores devem respeitar os <b>tipos de dados</b> definidos na criação da tabela.</li>
+	<li>Se a tabela possuir uma <b>restrição adicional</b>, ela deve ser declarada corretamente.</li>
+	</ul>       
+         
+                     </section>
+                               <section>
+
+                                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                
+
+<!-- 1º Bimestre
+
+Conteúdo:
+
+Criação de Tabelas (CREATE TABLE)
+
+Entendimento da estrutura de uma tabela.
+
+Definição de atributos e tipos de dados.
+
+Definição de chave primária (PRIMARY KEY).
+
+Entendimento da importância da chave primária para a integridade dos dados.
+
+Alteração de Tabelas (ALTER TABLE)
+
+Como adicionar ou remover colunas de uma tabela existente.
+
+Modificar o tipo de dado de uma coluna.
+
+2º Bimestre
+
+Conteúdo:
+
+Inserção de Dados (INSERT INTO)
+
+Como adicionar dados em uma tabela.
+
+Diferença entre inserção de um único e múltiplos registros.
+
+Consulta de Dados (SELECT)
+
+Como realizar consultas simples e avançadas.
+
+Filtragem de dados com condições (WHERE).
+
+Ordenação de dados (ORDER BY).
+
+Atualização de Dados (UPDATE)
+
+Modificar dados existentes em uma tabela.
+
+Como atualizar valores específicos de registros.
+
+3º Bimestre
+
+Conteúdo:
+
+Exclusão de Dados (DELETE)
+
+Como remover dados de uma tabela.
+
+Cuidado ao excluir dados para evitar perdas acidentais.
+
+Exclusão de Tabelas (DROP TABLE)
+
+Como excluir uma tabela e todos os dados nela armazenados.
+
+Chaves Estrangeiras (FOREIGN KEY)
+
+Conceito de relacionamentos entre tabelas.
+
+A importância da chave estrangeira para manter a integridade referencial.
+
+Como criar e usar chave estrangeira para estabelecer relacionamentos entre tabelas diferentes.
+
+4º Bimestre
+
+Conteúdo:
+
+Junção de Tabelas (JOIN)
+
+Compreensão dos diferentes tipos de junções: INNER JOIN, LEFT JOIN, RIGHT JOIN.
+
+Como combinar dados de várias tabelas em uma única consulta.
+
+Consultas Avançadas
+
+Uso de GROUP BY para agrupamento de dados.
+
+HAVING para filtrar grupos de dados.
+
+Funções agregadas como COUNT, SUM, AVG para realizar cálculos em grupos de dados.
+
+Subconsultas (Subqueries)
+
+Como usar uma consulta dentro de outra, para realizar operações mais complexas. 
+
+
+leadro e miqueias fisica
+joao vitor e mateus
+maria e julia 
+petersin e jonas geografia
+vinicius otavio pwII
+mori e wagner eco-->
+
+
+
+
+                                                   </section>
+                          
+        </section>            
+            
+            <img src="https://plus.unsplash.com/premium_photo-1685086785013-acc71c40e5fe?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagem relacionada a BD">
+        </div>
+        </section>
+    </div>
+    <button class="fixedbuttondireita">→</button>
+	    <a href="BdII2.html" class="fixedbuttonesquerda">←</a>
+	<a href="BdII4.html" class="fixedbuttondireita">→</a>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Colocar seu Site no Ar - Guia Prático</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        
+        section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        h3 {
+            color: #2c3e50;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        
+        ol, ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        
+        .dica {
+            background-color: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .importante {
+            background-color: #fff8e1;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .passo {
+            background-color: #f0f9f0;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        /* Rodapé */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+       
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Como Colocar seu Site no Ar - Guia Prático</h1>
+            <p class="subtitle">Hospedagem gratuita para seus 54 arquivos (10 matérias × 5 arquivos + 4 arquivos extras)</p>
+        </header>
+        
+        <section>
+            <h2>Primeiro: Organize seus arquivos</h2>
+            <p>Antes de tudo, organize todos os seus arquivos em pastas. Faça assim:</p>
+            <ul>
+                <li><strong>Pasta principal:</strong> Coloque todos os arquivos do seu site aqui</li>
+                <li><strong>Subpastas:</strong> Crie uma pasta para cada matéria (10 pastas)</li>
+                <li><strong>Arquivos principais:</strong> index.html e outros 3 arquivos na raiz</li>
+            </ul>
+            
+            <div class="dica">
+                <h3>Dica importante:</h3>
+                <p>O arquivo principal DEVE se chamar <strong>index.html</strong> - é esse que o navegador vai abrir automaticamente quando alguém acessar seu site.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Escolha uma plataforma gratuita</h2>
+            <p>Você tem várias opções para hospedar seu site de graça. Escolha uma:</p>
+            
+            <h3>Opção 1: GitHub Pages (Recomendado)</h3>
+            <div class="passo">
+                <ol>
+                    <li>Crie uma conta no <a href="https://github.com" target="_blank">GitHub</a> (é grátis)</li>
+                    <li>Crie um novo repositório com o nome: <strong>seuusuario.github.io</strong> (substitua "seuusuario" pelo seu nome de usuário)</li>
+                    <li>Faça upload de todos os seus arquivos para esse repositório</li>
+                    <li>Pronto! Seu site estará em: https://seuusuario.github.io</li>
+                </ol>
+            </div>
+            
+            <h3>Opção 2: Netlify</h3>
+            <div class="passo">
+                <ol>
+                    <li>Vá para <a href="https://netlify.com" target="_blank">Netlify.com</a></li>
+                    <li>Faça login com sua conta do GitHub, Google ou crie uma conta</li>
+                    <li>Arraste e solte a pasta com todos os seus arquivos na área indicada</li>
+                    <li>O Netlify vai gerar um link único para seu site automaticamente</li>
+                </ol>
+            </div>
+            
+            <h3>Opção 3: Vercel</h3>
+            <div class="passo">
+                <ol>
+                    <li>Acesse <a href="https://vercel.com" target="_blank">Vercel.com</a></li>
+                    <li>Faça login com sua conta do GitHub</li>
+                    <li>Clique em "Import Project" e selecione a pasta com seus arquivos</li>
+                    <li>Em segundos, seu site estará no ar com um link único</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Passo a Passo Detalhado (GitHub Pages)</h2>
+            
+            <div class="passo">
+                <h3>Passo 1: Crie sua conta no GitHub</h3>
+                <p>Vá para github.com e crie uma conta. É rápido e gratuito.</p>
+            </div>
+            
+            <div class="passo">
+                <h3>Passo 2: Crie um novo repositório</h3>
+                <p>Depois de fazer login, clique no ícone "+" no canto superior direito e selecione "New repository".</p>
+                <p>Dê o nome EXATO: <strong>seunomedeusuario.github.io</strong></p>
+                <p>Marque a opção "Public" e clique em "Create repository".</p>
+            </div>
+            
+            <div class="passo">
+                <h3>Passo 3: Faça upload dos arquivos</h3>
+                <p>Na página do repositório que você criou, clique em "Add file" → "Upload files".</p>
+                <p>Arraste TODOS os seus arquivos e pastas para a área indicada ou clique em "choose your files".</p>
+                <p>Não esqueça de incluir o arquivo index.html na raiz!</p>
+            </div>
+            
+            <div class="passo">
+                <h3>Passo 4: Commit das alterações</h3>
+                <p>Role para baixo, escreva uma mensagem no campo "Commit changes" (pode ser "Primeiro upload")</p>
+                <p>Clique no botão "Commit changes".</p>
+            </div>
+            
+            <div class="passo">
+                <h3>Passo 5: Acesse seu site</h3>
+                <p>Aguarde alguns minutos e depois acesse: <strong>https://seunomedeusuario.github.io</strong></p>
+                <p>Pronto! Seu site está no ar para todo mundo ver!</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Dicas Finais Importantes</h2>
+            
+            <div class="importante">
+                <h3>Verifique os links internos</h3>
+                <p>Teste todos os links entre suas páginas para garantir que estão funcionando corretamente.</p>
+            </div>
+            
+            <div class="importante">
+                <h3>Organização é fundamental</h3>
+                <p>Mantenha uma estrutura de pastas organizada para não se perder com tantos arquivos.</p>
+            </div>
+            
+            <div class="importante">
+                <h3>Nomeie os arquivos corretamente</h3>
+                <p>Use apenas letras, números e hífens nos nomes dos arquivos. Evite espaços e caracteres especiais.</p>
+            </div>
+            
+            <div class="dica">
+                <h3>Quer um domínio personalizado?</h3>
+                <p>Mais tarde, você pode comprar um domínio (como meusite.com) e configurar no GitHub Pages. Mas por enquanto, o link gratuito já resolve!</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Pronto! Agora você já sabe como colocar seu site no ar de graça. Mãos à obra!</p>
+            <p>Lembre-se: com 54 arquivos, organização é a chave para o sucesso.</p>
+        </footer>
+    </div>
+</body>
+</html>
