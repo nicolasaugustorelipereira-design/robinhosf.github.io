@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo: @media, :: e :</title>
+    <style>
+        /* Estilos base - Mobile First */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .menu a {
+            padding: 15px;
+            text-decoration: none;
+            background: #f0f0f0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* Pseudo-classes para interação */
+        .menu a:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .menu a:active {
+            transform: scale(0.98);
+        }
+        
+        .menu a:nth-child(odd) {
+            background: #e3f2fd;
+        }
+        
+        /* Pseudo-elementos para estilização */
+        .titulo::before {
+            content: "📱 ";
+            font-size: 1.2em;
+        }
+        
+        .destaque::first-letter {
+            font-size: 3em;
+            color: #007bff;
+            float: left;
+            margin-right: 10px;
+            line-height: 1;
+            font-weight: bold;
+        }
+        
+        .explicacao {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #007bff;
+        }
+        
+        .codigo {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        
+        /* Tablet */
+        @media (min-width: 768px) {
+            .menu {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            
+            .titulo::before {
+                content: "📺 ";
+            }
+            
+            .explicacao {
+                font-size: 1.1em;
+            }
+        }
+        
+        /* Desktop */
+        @media (min-width: 992px) {
+            .container {
+                display: grid;
+                grid-template-columns: 300px 1fr;
+                gap: 40px;
+            }
+            
+            .menu {
+                flex-direction: column;
+                height: fit-content;
+                position: sticky;
+                top: 20px;
+            }
+            
+            .titulo::before {
+                content: "💻 ";
+            }
+            
+            .destaque::first-letter {
+                font-size: 4em;
+            }
+        }
+        
+        /* Telas muito grandes */
+        @media (min-width: 1200px) {
+            .container {
+                grid-template-columns: 350px 1fr;
+            }
+            
+            .conteudo-principal {
+                font-size: 1.05em;
+            }
+        }
+        
+        /* Modo escuro */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #1a1a1a;
+                color: #e0e0e0;
+            }
+            
+            .menu a {
+                background: #333;
+                color: #e0e0e0;
+            }
+            
+            .explicacao {
+                background: #2d2d2d;
+                border-left-color: #4dabf7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="menu">
+            <a href="#media">@media</a>
+            <a href="#pseudo-classes">Pseudo-classes</a>
+            <a href="#pseudo-elementos">Pseudo-elementos</a>
+            <a href="#exemplos">Exemplos Práticos</a>
+        </nav>
+        
+        <main class="conteudo-principal">
+            <h1 class="titulo">Guia Completo: @media, Pseudo-classes e Pseudo-elementos</h1>
+            
+            <p class="destaque">Este guia explica de forma prática como usar @media para design responsivo, pseudo-classes para estados interativos e pseudo-elementos para estilização avançada. Cada conceito é demonstrado visualmente no próprio código!</p>
+            
+            <div class="explicacao">
+                <h2 id="media">🎯 O que é @media?</h2>
+                <p><strong>@media</strong> é uma regra CSS que permite aplicar estilos específicos baseados nas características do dispositivo, como largura da tela, orientação ou resolução.</p>
+                
+                <div class="codigo">
+/* Exemplo: Mudando layout em diferentes telas */<br>
+@media (max-width: 768px) {<br>
+&nbsp;&nbsp;.menu { flex-direction: column; }<br>
+}<br>
+@media (min-width: 769px) {<br>
+&nbsp;&nbsp;.menu { flex-direction: row; }<br>
+}
+                </div>
+                
+                <p><strong>Experimente:</strong> Redimensione a janela e observe como o menu se reorganiza automaticamente!</p>
+            </div>
+            
+            <div class="explicacao">
+                <h2 id="pseudo-classes">🎨 Pseudo-classes (:)</h2>
+                <p>Pseudo-classes selecionam elementos baseados em seu <strong>estado</strong> ou <strong>posição</strong>. Elas começam com <strong>um dois-pontos</strong>.</p>
+                
+                <div class="codigo">
+/* :hover - quando o mouse passa por cima */<br>
+.menu a:hover {<br>
+&nbsp;&nbsp;background: blue;<br>
+&nbsp;&nbsp;color: white;<br>
+}<br><br>
+/* :nth-child() - elementos específicos */<br>
+.menu a:nth-child(odd) {<br>
+&nbsp;&nbsp;background: #e3f2fd;<br>
+}
+                </div>
+                
+                <p><strong>Experimente:</strong> Passe o mouse sobre os botões do menu e observe as cores mudando!</p>
+            </div>
+            
+            <div class="explicacao">
+                <h2 id="pseudo-elementos">✨ Pseudo-elementos (::)</h2>
+                <p>Pseudo-elementos selecionam <strong>partes específicas</strong> de um elemento. Eles começam com <strong>dois dois-pontos</strong>.</p>
+                
+                <div class="codigo">
+/* ::before - adiciona conteúdo ANTES */<br>
+.titulo::before {<br>
+&nbsp;&nbsp;content: "📱 ";<br>
+}<br><br>
+/* ::first-letter - estiliza a primeira letra */<br>
+.destaque::first-letter {<br>
+&nbsp;&nbsp;font-size: 3em;<br>
+&nbsp;&nbsp;color: blue;<br>
+}
+                </div>
+                
+                <p><strong>Observe:</strong> O título tem um emoji antes do texto, e o primeiro parágrafo tem a primeira letra destacada!</p>
+            </div>
+            
+            <div class="explicacao">
+                <h2 id="exemplos">🔍 Demonstração ao Vivo</h2>
+                <p><strong>O que está acontecendo agora:</strong></p>
+                <ul>
+                    <li>✅ <strong>@media</strong> está controlando o layout do menu</li>
+                    <li>✅ <strong>:hover</strong> muda as cores ao passar o mouse</li>
+                    <li>✅ <strong>:nth-child(odd)</strong> colore botões ímpares</li>
+                    <li>✅ <strong>::before</strong> adiciona emojis dinâmicos</li>
+                    <li>✅ <strong>::first-letter</strong> destaca a primeira letra</li>
+                </ul>
+                
+                <p><strong>Desafio:</strong> Redimensione a janela para ver o emoji do título mudar de 📱 para 📺 e depois para 💻!</p>
+            </div>
+            
+            <div class="explicacao" style="background: #d4edda; border-left-color: #28a745;">
+                <h2>🎓 Resumo Final</h2>
+                <p><strong>@media</strong> = Layout responsivo | <strong>Pseudo-classes</strong> = Estados interativos | <strong>Pseudo-elementos</strong> = Partes especiais</p>
+                <p>Juntos, essas ferramentas criam experiências web ricas e adaptáveis que funcionam em qualquer dispositivo!</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

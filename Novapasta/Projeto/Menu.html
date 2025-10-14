@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        
+        
+ <link rel="stylesheet" href="Menu.css">
+        <title>Pagina Principal</title>
+    </head>
+
+    <body>
+        <div class="menu">
+            <h3>Menu</h3>
+
+            <ul>
+                <li><a href="#Sobre">Sobre</a></li>
+                <li><a href="#Upload">Uploads</a></li>
+                <li><a href="#Materiais">Materiais</a></li>
+            </ul>
+
+        </div>
+
+        <a name="Sobre">
+            <div class="sobre">
+                <img src="https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/79/2024/04/image-1.png">
+                <h3>
+                    Sobre o projeto:
+                </h3>
+
+                <p>
+                    Projeto interdisciplinar com primeiro ano e segundo ano do ensino médio da etec de Ipaussu, 
+                    onde o objetivo é criar um sistema para que o estudante possa fazer download de materiais
+                    didáticos, como livros, apostilas, exercícios, etc. Para que o estudante possa ter acesso
+                    ao material didático de forma rápida e prática sem a utilização de celular, 
+                    devido a proibição do uso de celular em sala de aula.
+                </p>
+            </div>
+        </a>
+
+        <a name="Upload">
+            <div class="upload">
+                <h3>Upload de materiais</h3>
+                <form method="POST" action="upload.php" enctype="multipart/form-data">
+                    <input type="file" name="arquivo" required>
+                    
+                    <br><br>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </a>
+
+        <a name="Materiais">
+            <div class="materiais">
+                <h3>Materiais disponíveis</h3>
+                <ul>
+                    <li><a href="">Portugues</a></li>
+                    <li><a href="">Matematica</a></li>
+                    <li><a href="">Ingles</a></li>
+                    <li><a href="">Historia</a></li>
+                    <li><a href="">Geografia</a></li>
+                    <li><a href="">Biologia</a></li>
+                    <li><a href="">Fisica</a></li>
+                    <li><a href="">Quimica</a></li>
+                    <li><a href="">Ed. Fisica</a></li>
+                    <li><a href="">Etica</a></li>
+                    <li><a href="">Programação Web 2</a></li>
+                    <li><a href="">Banco de Dados 2</a></li>
+                    <li><a href="">Desenvolvimento de Sistemas</a></li>
+                    <li><a href="">Programação Aplicativos Mobile</a></li>
+                </ul>
+            </div>
+        </a>
+        <hr>
+        <footer>
+            <p>&copy; Desenvolvido por Alunos do 2° DS da Etec de Ipaussu</p>
+        </footer>
+    </body>
+</html>

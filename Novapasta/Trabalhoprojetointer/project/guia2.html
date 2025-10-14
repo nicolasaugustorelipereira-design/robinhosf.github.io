@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP e Banco de Dados - Guia para Hospedagem Online</title>
+    <style>
+        /* Estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Navegação */
+        nav {
+            background-color: #4a5568;
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Conteúdo principal */
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        
+        .content {
+            flex: 3;
+            padding: 20px;
+            min-width: 300px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            min-width: 250px;
+        }
+        
+        section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #4a5568;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            color: #667eea;
+            margin: 15px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        /* Estilos para código */
+        .code-block {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .code-comment {
+            color: #a0aec0;
+        }
+        
+        .code-keyword {
+            color: #63b3ed;
+        }
+        
+        .code-string {
+            color: #68d391;
+        }
+        
+        .code-variable {
+            color: #fbb6ce;
+        }
+        
+        /* Listas */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Alertas */
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .alert-info {
+            background-color: #bee3f8;
+            border-left: 4px solid #3182ce;
+        }
+        
+        .alert-warning {
+            background-color: #fed7d7;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .alert-success {
+            background-color: #c6f6d5;
+            border-left: 4px solid #38a169;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #4a5568;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PHP e Banco de Dados</h1>
+            <p>Guia completo para criar e hospedar um banco de dados PHP online</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#configuracao">Configuração</a></li>
+                <li><a href="#criacao">Criação do BD</a></li>
+                <li><a href="#conexao">Conexão PHP</a></li>
+                <li><a href="#hospedagem">Hospedagem</a></li>
+                <li><a href="#exemplo">Exemplo Prático</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <div class="content">
+                <section id="introducao">
+                    <h2>Introdução ao PHP e Bancos de Dados</h2>
+                    <p>PHP é uma linguagem de script do lado do servidor amplamente utilizada para desenvolvimento web. Quando combinado com um sistema de gerenciamento de banco de dados (como MySQL), o PHP permite criar aplicações web dinâmicas e interativas.</p>
+                    
+                    <div class="alert alert-info">
+                        <strong>Importante:</strong> Para usar PHP com banco de dados online, você precisará de uma hospedagem que suporte PHP e MySQL.
+                    </div>
+                    
+                    <h3>Por que usar PHP com banco de dados?</h3>
+                    <ul>
+                        <li>Armazenamento persistente de dados</li>
+                        <li>Recuperação e manipulação eficiente de informações</li>
+                        <li>Criação de aplicações web dinâmicas</li>
+                        <li>Gerenciamento de usuários e sessões</li>
+                        <li>Análise e relatórios de dados</li>
+                    </ul>
+                </section>
+                
+                <section id="configuracao">
+                    <h2>Configuração do Ambiente</h2>
+                    <p>Antes de começar, você precisa configurar seu ambiente de desenvolvimento:</p>
+                    
+                    <h3>Ambiente Local (Desenvolvimento)</h3>
+                    <ul>
+                        <li><strong>XAMPP</strong> - Pacote que inclui Apache, PHP e MySQL</li>
+                        <li><strong>WAMP</strong> - Alternativa para Windows</li>
+                        <li><strong>MAMP</strong> - Para usuários macOS</li>
+                        <li><strong>LAMP</strong> - Para Linux</li>
+                    </ul>
+                    
+                    <h3>Ambiente Online (Produção)</h3>
+                    <p>Para hospedar seu site online, você precisará de:</p>
+                    <ul>
+                        <li>Servidor de hospedagem com suporte a PHP</li>
+                        <li>Banco de dados MySQL (ou similar)</li>
+                        <li>Acesso FTP ou painel de controle (como cPanel)</li>
+                    </ul>
+                </section>
+                
+                <section id="criacao">
+                    <h2>Criando um Banco de Dados</h2>
+                    <p>Existem duas formas principais de criar um banco de dados para usar com PHP:</p>
+                    
+                    <h3>1. Usando PHPMyAdmin (Interface Gráfica)</h3>
+                    <p>O PHPMyAdmin é uma ferramenta web popular para gerenciar bancos de dados MySQL.</p>
+                    <ol>
+                        <li>Acesse o PHPMyAdmin através do seu painel de hospedagem</li>
+                        <li>Clique em "Novo" para criar um novo banco de dados</li>
+                        <li>Digite um nome para o banco de dados e clique em "Criar"</li>
+                        <li>Crie tabelas e defina a estrutura dos dados</li>
+                    </ol>
+                    
+                    <h3>2. Usando PHP (Programaticamente)</h3>
+                    <p>Você também pode criar um banco de dados diretamente através de código PHP:</p>
+                    
+                    <div class="code-block">
+                        <span class="code-comment">// Conectar ao servidor MySQL (sem especificar um banco de dados)</span><br>
+                        <span class="code-keyword">$servername</span> = <span class="code-string">"localhost"</span>;<br>
+                        <span class="code-keyword">$username</span> = <span class="code-string">"seu_usuario"</span>;<br>
+                        <span class="code-keyword">$password</span> = <span class="code-string">"sua_senha"</span>;<br><br>
+                        
+                        <span class="code-comment">// Criar conexão</span><br>
+                        <span class="code-keyword">$conn</span> = <span class="code-keyword">new</span> mysqli(<span class="code-keyword">$servername</span>, <span class="code-keyword">$username</span>, <span class="code-keyword">$password</span>);<br><br>
+                        
+                        <span class="code-comment">// Verificar conexão</span><br>
+                        <span class="code-keyword">if</span> (<span class="code-keyword">$conn</span>->connect_error) {<br>
+                        &nbsp;&nbsp;die(<span class="code-string">"Conexão falhou: "</span> . <span class="code-keyword">$conn</span>->connect_error);<br>
+                        }<br><br>
+                        
+                        <span class="code-comment">// Criar banco de dados</span><br>
+                        <span class="code-keyword">$sql</span> = <span class="code-string">"CREATE DATABASE meu_banco_de_dados"</span>;<br>
+                        <span class="code-keyword">if</span> (<span class="code-keyword">$conn</span>->query(<span class="code-keyword">$sql</span>) === TRUE) {<br>
+                        &nbsp;&nbsp;echo <span class="code-string">"Banco de dados criado com sucesso"</span>;<br>
+                        } <span class="code-keyword">else</span> {<br>
+                        &nbsp;&nbsp;echo <span class="code-string">"Erro ao criar banco de dados: "</span> . <span class="code-keyword">$conn</span>->error;<br>
+                        }<br><br>
+                        
+                        <span class="code-keyword">$conn</span>->close();<br>
+                    </div>
+                </section>
+                
+                <section id="conexao">
+                    <h2>Conectando PHP ao Banco de Dados</h2>
+                    <p>Após criar o banco de dados, você precisa conectar seu código PHP a ele:</p>
+                    
+                    <div class="code-block">
+                        <span class="code-comment">// Detalhes de conexão</span><br>
+                        <span class="code-keyword">$servername</span> = <span class="code-string">"localhost"</span>;<br>
+                        <span class="code-keyword">$username</span> = <span class="code-string">"seu_usuario"</span>;<br>
+                        <span class="code-keyword">$password</span> = <span class="code-string">"sua_senha"</span>;<br>
+                        <span class="code-keyword">$dbname</span> = <span class="code-string">"meu_banco_de_dados"</span>;<br><br>
+                        
+                        <span class="code-comment">// Criar conexão</span><br>
+                        <span class="code-keyword">$conn</span> = <span class="code-keyword">new</span> mysqli(<span class="code-keyword">$servername</span>, <span class="code-keyword">$username</span>, <span class="code-keyword">$password</span>, <span class="code-keyword">$dbname</span>);<br><br>
+                        
+                        <span class="code-comment">// Verificar conexão</span><br>
+                        <span class="code-keyword">if</span> (<span class="code-keyword">$conn</span>->connect_error) {<br>
+                        &nbsp;&nbsp;die(<span class="code-string">"Conexão falhou: "</span> . <span class="code-keyword">$conn</span>->connect_error);<br>
+                        }<br>
+                        echo <span class="code-string">"Conectado com sucesso"</span>;<br>
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <strong>Atenção:</strong> Nunca armazene informações de conexão diretamente no código em produção. Use variáveis de ambiente ou arquivos de configuração protegidos.
+                    </div>
+                </section>
+                
+                <section id="hospedagem">
+                    <h2>Hospedando Online</h2>
+                    <p>Para hospedar seu site com banco de dados PHP online:</p>
+                    
+                    <h3>1. Escolha uma Hospedagem</h3>
+                    <p>Selecione um provedor de hospedagem que ofereça:</p>
+                    <ul>
+                        <li>Suporte a PHP (versão compatível com seu código)</li>
+                        <li>Banco de dados MySQL</li>
+                        <li>Painel de controle (cPanel, Plesk, etc.)</li>
+                        <li>Acesso FTP/SFTP</li>
+                    </ul>
+                    
+                    <h3>2. Upload dos Arquivos</h3>
+                    <p>Use um cliente FTP (como FileZilla) ou o gerenciador de arquivos do painel de controle para fazer upload:</p>
+                    <ol>
+                        <li>Conecte-se ao servidor via FTP usando as credenciais fornecidas</li>
+                        <li>Navegue até a pasta pública (geralmente public_html, www ou htdocs)</li>
+                        <li>Faça upload de todos os seus arquivos PHP, HTML, CSS e JavaScript</li>
+                    </ol>
+                    
+                    <h3>3. Configurar o Banco de Dados Online</h3>
+                    <ol>
+                        <li>Acesse o painel de controle da hospedagem</li>
+                        <li>Crie um banco de dados MySQL</li>
+                        <li>Anote o nome do banco, usuário, senha e servidor (host)</li>
+                        <li>Importe sua estrutura de banco de dados (se necessário)</li>
+                        <li>Atualize as informações de conexão no seu código PHP</li>
+                    </ol>
+                    
+                    <div class="alert alert-info">
+                        <strong>Dica:</strong> Muitos provedores de hospedagem usam "localhost" como servidor de banco de dados, mas alguns podem usar um endereço específico. Verifique a documentação do seu provedor.
+                    </div>
+                </section>
+                
+                <section id="exemplo">
+                    <h2>Exemplo Prático Completo</h2>
+                    <p>Aqui está um exemplo completo de um sistema simples de cadastro de usuários:</p>
+                    
+                    <h3>Estrutura do Banco de Dados</h3>
+                    <div class="code-block">
+                        <span class="code-comment">-- Criar tabela de usuários</span><br>
+                        CREATE TABLE usuarios (<br>
+                        &nbsp;&nbsp;id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,<br>
+                        &nbsp;&nbsp;nome VARCHAR(50) NOT NULL,<br>
+                        &nbsp;&nbsp;email VARCHAR(50) NOT NULL,<br>
+                        &nbsp;&nbsp;data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br>
+                        );
+                    </div>
+                    
+                    <h3>Código PHP para Inserir Dados</h3>
+                    <div class="code-block">
+                        <span class="code-comment">&lt;?php</span><br>
+                        <span class="code-comment">// Configurações do banco de dados</span><br>
+                        <span class="code-keyword">$servername</span> = <span class="code-string">"localhost"</span>;<br>
+                        <span class="code-keyword">$username</span> = <span class="code-string">"seu_usuario"</span>;<br>
+                        <span class="code-keyword">$password</span> = <span class="code-string">"sua_senha"</span>;<br>
+                        <span class="code-keyword">$dbname</span> = <span class="code-string">"meu_banco_de_dados"</span>;<br><br>
+                        
+                        <span class="code-comment">// Criar conexão</span><br>
+                        <span class="code-keyword">$conn</span> = <span class="code-keyword">new</span> mysqli(<span class="code-keyword">$servername</span>, <span class="code-keyword">$username</span>, <span class="code-keyword">$password</span>, <span class="code-keyword">$dbname</span>);<br><br>
+                        
+                        <span class="code-comment">// Verificar conexão</span><br>
+                        <span class="code-keyword">if</span> (<span class="code-keyword">$conn</span>->connect_error) {<br>
+                        &nbsp;&nbsp;die(<span class="code-string">"Conexão falhou: "</span> . <span class="code-keyword">$conn</span>->connect_error);<br>
+                        }<br><br>
+                        
+                        <span class="code-comment">// Processar formulário</span><br>
+                        <span class="code-keyword">if</span> (<span class="code-keyword">$_SERVER</span>[<span class="code-string">"REQUEST_METHOD"</span>] == <span class="code-string">"POST"</span>) {<br>
+                        &nbsp;&nbsp;<span class="code-keyword">$nome</span> = <span class="code-keyword">$_POST</span>[<span class="code-string">"nome"</span>];<br>
+                        &nbsp;&nbsp;<span class="code-keyword">$email</span> = <span class="code-keyword">$_POST</span>[<span class="code-string">"email"</span>];<br><br>
+                        
+                        &nbsp;&nbsp;<span class="code-comment">// Inserir dados no banco</span><br>
+                        &nbsp;&nbsp;<span class="code-keyword">$sql</span> = <span class="code-string">"INSERT INTO usuarios (nome, email) VALUES ('$nome', '$email')"</span>;<br><br>
+                        
+                        &nbsp;&nbsp;<span class="code-keyword">if</span> (<span class="code-keyword">$conn</span>->query(<span class="code-keyword">$sql</span>) === TRUE) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;echo <span class="code-string">"Novo registro criado com sucesso"</span>;<br>
+                        &nbsp;&nbsp;} <span class="code-keyword">else</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;echo <span class="code-string">"Erro: "</span> . <span class="code-keyword">$sql</span> . <span class="code-string">"&lt;br&gt;"</span> . <span class="code-keyword">$conn</span>->error;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br><br>
+                        
+                        <span class="code-keyword">$conn</span>->close();<br>
+                        <span class="code-comment">?&gt;</span>
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <strong>Importante:</strong> Este exemplo usa consultas diretas para simplificar, mas em produção você deve usar prepared statements para prevenir ataques de SQL injection.
+                    </div>
+                </section>
+            </div>
+            
+            <div class="sidebar">
+                <h2>Recursos Úteis</h2>
+                
+                <h3>Hospedagens Populares</h3>
+                <ul>
+                    <li>Hostinger</li>
+                    <li>Bluehost</li>
+                    <li>HostGator</li>
+                    <li>SiteGround</li>
+                    <li>DigitalOcean</li>
+                </ul>
+                
+                <h3>Ferramentas</h3>
+                <ul>
+                    <li>PHPMyAdmin</li>
+                    <li>FileZilla (FTP)</li>
+                    <li>Visual Studio Code</li>
+                    <li>XAMPP (local)</li>
+                </ul>
+                
+                <h3>Documentação</h3>
+                <ul>
+                    <li>PHP.net</li>
+                    <li>MySQL Documentation</li>
+                    <li>W3Schools PHP</li>
+                </ul>
+                
+                <div class="alert alert-success">
+                    <strong>Dica:</strong> Sempre faça backup do seu banco de dados antes de fazer alterações importantes.
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Guia de PHP e Banco de Dados para Hospedagem Online &copy; 2023</p>
+            <p>Este é um documento educativo - Use em produção com as devidas precauções de segurança</p>
+        </footer>
+    </div>
+</body>
+</html>
