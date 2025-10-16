@@ -24,3 +24,110 @@
     <p><a href="login.html">Voltar para Login</a></p>
 </body>
 </html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        form p {
+            margin: 1.2rem 0;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #f5f5f5;
+            box-sizing: border-box;
+            margin-top: 5px;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            background: #eaeaea;
+            transform: scale(1.02);
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            transform: translateY(-2px);
+        }
+
+        .cadastro-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .cadastro-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .cadastro-link a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form method="post" action="LoginProcess.php">
+            <p>RM: <input type="text" name="RM" required></p>
+            <p>Senha: <input type="password" name="senha" required></p>
+            <p><input type="submit" value="Entrar"></p>
+        </form>
+        <p class="cadastro-link"><a href="cadastro.html">Cadastrar novo usuário</a></p>
+    </div>
+</body>
+</html>
+
+*****ALTER TABLE usuarios ADD COLUMN status VARCHAR(20) DEFAULT 'ativo';

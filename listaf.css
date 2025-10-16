@@ -66,4 +66,31 @@
       padding: 10px;
       border-radius: 5px;
     }
- 
+    .fixedbuttonsairparaindex {
+      position: fixed;
+      top: 40px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #e41d4f;
+      color: white;
+      font-size: 20px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    #fixedbuttonsairparaindex:hover {
+      background-color: #c0173f;
+      transform: scale(1.1);
+    }
+    a {
+      text-decoration: none;
+    }
